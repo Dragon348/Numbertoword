@@ -1,0 +1,9 @@
+E:\Число в пропись\Numbertoword\Numbertoword\bin\Debug\Numbertoword.exe.config
+E:\Число в пропись\Numbertoword\Numbertoword\bin\Debug\Numbertoword.exe
+E:\Число в пропись\Numbertoword\Numbertoword\bin\Debug\Numbertoword.pdb
+E:\Число в пропись\Numbertoword\Numbertoword\obj\Debug\Numbertoword.csprojResolveAssemblyReference.cache
+E:\Число в пропись\Numbertoword\Numbertoword\obj\Debug\Numbertoword.Properties.Resources.resources
+E:\Число в пропись\Numbertoword\Numbertoword\obj\Debug\Numbertoword.csproj.GenerateResource.Cache
+E:\Число в пропись\Numbertoword\Numbertoword\obj\Debug\Numbertoword.exe
+E:\Число в пропись\Numbertoword\Numbertoword\obj\Debug\Numbertoword.pdb
+E:\Число в пропись\Numbertoword\Numbertoword\obj\Debug\Numbertoword.Numbertoword.resources
