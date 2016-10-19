@@ -14,7 +14,6 @@ namespace Numbertoword
         [STAThread]
         static void Main()
         {
-            WordDictionary Word1 = new WordDictionary();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Numbertoword());

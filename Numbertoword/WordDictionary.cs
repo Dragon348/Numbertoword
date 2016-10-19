@@ -10,8 +10,6 @@ namespace Numbertoword
 {
     class WordDictionary
     {
-        // private static bool isInit = false;
-        //  private Dictionary<int, string> digit = new Dictionary<int, string>();
         private Dictionary<int, Dictionary<int, string>> digits = new Dictionary<int, Dictionary<int, string>>
                 {
                         {
@@ -157,16 +155,13 @@ namespace Numbertoword
         private Dictionary<int, string> hundreds1 = new Dictionary<int, string> { { 1, "сто" }, { 2, "ста" }, { 3, "ста" }, { 4, "сот" }, { 5, "ста" }, { 6, "ста" } };
         private Dictionary<int, string> hundreds200 = new Dictionary<int, string> { { 1, "двести" }, { 2, "двухсот" }, { 3, "двумстам" }, { 4, "двести" }, { 5, "двумястами" }, { 6, "двухстах" } };
         private Dictionary<int, string> hundreds34 = new Dictionary<int, string> { { 1, "ста" }, { 2, "сот" }, { 3, "стам" }, { 4, "ста" }, { 5, "стами" }, { 6, "стах" } };
-        private Dictionary<int, string> thousandsOver5 = new Dictionary<int, string> { { 1, "тысяч" }, { 2, "тысяч" }, { 3, "тысячам" }, { 4, "тысяч" }, { 5, "тысячами" }, { 6, "тысячах" } };
-        private Dictionary<int, string> thousands1 = new Dictionary<int, string> { { 1, "тысяча" }, { 2, "тысячи" }, { 3, "тысяче" }, { 4, "тысяча" }, { 5, "тысячей" }, { 6, "тысяче" } };
-        private Dictionary<int, string> thousands24 = new Dictionary<int, string> { { 1, "тысячи" }, { 2, "тысяч" }, { 3, "тысячам" }, { 4, "тысячи" }, { 5, "тысячами" }, { 6, "тысячах" } };
-        private Dictionary<int, int> exceptions = new Dictionary<int, int> { { 1, 1 }, { 2, 2 }, { 3, 3 } };
+        private static Dictionary<int, string> thousandsOver5 = new Dictionary<int, string> { { 1, "тысяч" }, { 2, "тысяч" }, { 3, "тысячам" }, { 4, "тысяч" }, { 5, "тысячами" }, { 6, "тысячах" } };
+        private static Dictionary<int, string> thousands1 = new Dictionary<int, string> { { 1, "тысяча" }, { 2, "тысячи" }, { 3, "тысяче" }, { 4, "тысяча" }, { 5, "тысячей" }, { 6, "тысяче" } };
+        private static Dictionary<int, string> thousands24 = new Dictionary<int, string> { { 1, "тысячи" }, { 2, "тысяч" }, { 3, "тысячам" }, { 4, "тысячи" }, { 5, "тысячами" }, { 6, "тысячах" } };
+        private static Dictionary<int, Dictionary<int, string>> thousands = new Dictionary<int, Dictionary<int, string>> { { 0, thousandsOver5 }, { 1, thousands1 }, { 2, thousands24 }, { 3, thousands24 }, { 4, thousands24 }, { 5, thousandsOver5 }, { 6, thousandsOver5 }, { 7, thousandsOver5 }, { 8, thousandsOver5 }, { 9, thousandsOver5 }, };
 
-        public bool isException(int digit)
-        {
-            return exceptions.ContainsValue(digit);
-        }
-        public string digitToString(int digit, int kind, int numberCase)
+
+        public string digitToString(int digit, int kind, int numberCase)// возвращает прописное значение цифры
         {
             switch (digit)
             {
@@ -178,7 +173,7 @@ namespace Numbertoword
                     return digits[digit][numberCase];
             }
         }
-        public string hundredToString(int digit,  int numberCase)
+        public string hundredToString(int digit,  int numberCase) // возвращает прописное представление сотен
         {
             switch (digit)
             {
@@ -194,23 +189,11 @@ namespace Numbertoword
                     return digits[digit][numberCase] + hundreds59[numberCase];
             }
         }
-        public string thousandsToString(int digit, int numberCase)
+        public string thousandsToString(int digit, int numberCase) // функция возвращаяет прописное представление тысяч
         {
-            switch (digit)
-            {
-                case 1:
-                    return thousands1[numberCase];
-                case 2:
-                    return thousands24[numberCase];
-                case 3:
-                    return thousands24[numberCase];
-                case 4:
-                    return thousands24[numberCase];
-                default:
-                    return thousandsOver5[numberCase];
-            }
+            return thousands[digit][numberCase];
         }
-        public string beforeTwentyToString(int digit,  int numberCase)
+        public string beforeTwentyToString(int digit,  int numberCase)  // функция возвращает пропись чисел от 11 до 20
         {
             switch (digit)
             {

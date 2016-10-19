@@ -16,8 +16,6 @@ namespace Numbertoword
         public Numbertoword()
         {
             InitializeComponent();
-            //  comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            //  comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         }
 
         private void Numbertoword_Load(object sender, EventArgs e)
@@ -46,7 +44,15 @@ namespace Numbertoword
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            outBox.Text = translater.numberToText(numberBox.Text, kindBox.SelectedIndex + 1, caseBox.SelectedIndex + 1);
-        }
+            try
+            {
+                Convert.ToInt32(numberBox.Text);
+                outBox.Text = translater.numberToText(numberBox.Text, kindBox.SelectedIndex + 1, caseBox.SelectedIndex + 1);
+            }
+            catch (FormatException)
+            {
+                outBox.Text = "Ввёдённое число содержит недопустимые символы";
+            }
+         }
     }
 }
